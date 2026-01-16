@@ -5,16 +5,14 @@ import numpy as np
 # 1. Solar PV Parametre Sınırları (Hata almamak için sıkılaştırıldı)
 # Makale değerlerine uygun aralıklar:
 bounds = [
-    (0, 1),        # I_ph (Fotovoltaik Akım)
-    (1e-12, 1e-5), # I_sd (Diyot Akımı - Çok hassas)
-    (0.001, 1),    # R_s  (Seri Direnç - 0 olamaz)
-    (10, 200),     # R_sh (Şönt Direnç - 0 olamaz, genelde 30-100 arasıdır)
-    (1, 2)         # n    (İdealite Faktörü)
+    (0.7, 0.8),    # I_ph: Genelde 0.76 civarındadır, aralığı daralttık.
+    (1e-7, 1e-6),  # I_sd: En kritik ayar! Samanlıkta iğne aramayı bırakıp nokta atışı yapsın.
+    (0.01, 0.05),  # R_s : Genelde 0.036'dır.
+    (10, 100),     # R_sh: Genelde 50 civarındadır.
+    (1.4, 1.6)     # n   : Genelde 1.48'dir.
 ]
-
-# 2. Algoritmayı Kur
-# Popülasyonu 50, İterasyonu 1000 yaparsak sonuç makale kalitesinde olur.
-optimizer = BBO(solar_pv_cost, bounds, pop_size=50, max_iter=1000)
+# 2. BBO Optimizatörünü Başlat
+optimizer = BBO(solar_pv_cost, bounds, pop_size=100, max_iter=1000)
 
 print("🌞 Solar PV Optimizasyonu Başlatılıyor (Single Diode Model)...")
 best_sol, best_fit, curve = optimizer.optimize()
