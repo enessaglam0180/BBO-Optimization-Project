@@ -1,0 +1,4 @@
+Algorithm,Best (En İyi),Worst (En Kötü),Mean (Ortalama),Std Dev (Sapma)
+BBO,0.012944,0.014068,0.013521,3.20e-04
+PSO,0.012622,0.012622,0.012622,1.79e-08
+GWO,0.012625,0.012853,0.012673,6.71e-05
