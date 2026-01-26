@@ -23,7 +23,7 @@ algorithms = {
 
 results_table = []
 
-print(f"📊 İstatistik Toplama Başladı ({NUM_RUNS} tur)... Kahveni al, bu biraz sürebilir.")
+print(f"📊 İstatistik Toplama Başladı ({NUM_RUNS} tur)...")
 
 for name, AlgoClass in algorithms.items():
     print(f"\n--- {name} Koşuluyor ---")
@@ -49,7 +49,7 @@ for name, AlgoClass in algorithms.items():
         "Best (En İyi)": f"{best_val:.6f}",
         "Worst (En Kötü)": f"{worst_val:.6f}",
         "Mean (Ortalama)": f"{mean_val:.6f}",
-        "Std Dev (Sapma)": f"{std_val:.2e}" # Bilimsel gösterim (örn: 1.2e-5) daha havalı durur
+        "Std Dev (Sapma)": f"{std_val:.2e}" 
     })
     print(f"\nTamamlandı. Ortalama Hata: {mean_val:.6f}")
 

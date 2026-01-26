@@ -7,9 +7,8 @@ from benchmark_functions import solar_pv_cost
 
 # --- AYARLAR ---
 pop_size = 50
-max_iter = 300  # Kıyaslama için 300 yeterli, hızlı olsun
+max_iter = 300  
 
-# Parametre Sınırları (Az önce düzelttiğimiz sınırlar)
 bounds = [
     (0.7, 0.8),    # I_ph
     (1e-7, 1e-6),  # I_sd
@@ -18,7 +17,6 @@ bounds = [
     (1.4, 1.6)     # n
 ]
 
-print("🚀 ALGORİTMALAR YARIŞIYOR...")
 
 # 1. BBO Çalıştır
 print("1. BBO Çalışıyor...")
@@ -45,9 +43,9 @@ plt.plot(bbo_curve, label=f'BBO (Best: {bbo_best:.5f})', linewidth=2, color='red
 plt.plot(pso_curve, label=f'PSO (Best: {pso_best:.5f})', linewidth=1.5, linestyle='--', color='blue')
 plt.plot(gwo_curve, label=f'GWO (Best: {gwo_best:.5f})', linewidth=1.5, linestyle='-.', color='green')
 
-plt.title('Yakınsama Analizi: Solar PV Parametre Tahmini', fontsize=14)
-plt.xlabel('İterasyon', fontsize=12)
-plt.ylabel('Maliyet (RMSE)', fontsize=12)
+plt.title('Convergence Analysis: Solar PV Parameter Estimation', fontsize=14)
+plt.xlabel('Iteration', fontsize=12)
+plt.ylabel('Price (RMSE)', fontsize=12)
 plt.yscale('log') # Logaritmik ölçek farkları daha iyi gösterir
 plt.legend()
 plt.grid(True, which="both", ls="-", alpha=0.5)
